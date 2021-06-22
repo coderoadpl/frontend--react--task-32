@@ -10,12 +10,8 @@ export class App extends React.Component {
     number3: 3
   }
 
-  handleInc = (counterNumber) => this.setState((prevState) => ({
-    ['number' + counterNumber]: prevState['number' + counterNumber] + 1
-  }))
-
-  handleDec = (counterNumber) => this.setState((prevState) => ({
-    ['number' + counterNumber]: prevState['number' + counterNumber] - 1
+  makeHandleChange = (counterNumber, delta) => () => this.setState((prevState) => ({
+    ['number' + counterNumber]: prevState['number' + counterNumber] + delta
   }))
 
   reset1 = () => this.setState((prevState) => ({
@@ -38,20 +34,20 @@ export class App extends React.Component {
           onClick={console.log}
         />
         <Counter
-          onClickInc={() => this.handleInc(1)}
-          onClickDec={() => this.handleDec(1)}
+          onClickInc={this.makeHandleChange(1, 1)}
+          onClickDec={this.makeHandleChange(1, -1)}
           onClickReset={this.reset1}
           number={this.state.number1}
         />
         <Counter
-          onClickInc={() => this.handleInc(2)}
-          onClickDec={() => this.handleDec(2)}
+          onClickInc={this.makeHandleChange(2, 1)}
+          onClickDec={this.makeHandleChange(2, -1)}
           onClickReset={this.reset2}
           number={this.state.number2}
         />
         <Counter
-          onClickInc={() => this.handleInc(3)}
-          onClickDec={() => this.handleDec(3)}
+          onClickInc={this.makeHandleChange(3, 1)}
+          onClickDec={this.makeHandleChange(3, -1)}
           onClickReset={this.reset3}
           number={this.state.number3}
         />
