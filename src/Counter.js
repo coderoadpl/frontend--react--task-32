@@ -14,6 +14,12 @@ export class Counter extends React.Component {
       }))
     }
 
+    dec = () => {
+      this.setState((prevState) => ({
+        number: prevState.number - 1
+      }))
+    }
+
     render () {
       const { number } = this.state
 
@@ -23,8 +29,12 @@ export class Counter extends React.Component {
             numberProp={number}
           />
           <Button
-            className={'button-class-name'}
+            label={'+'}
             onClick={this.inc}
+          />
+          <Button
+            label={'-'}
+            onClick={this.dec}
           />
         </div>
       )
