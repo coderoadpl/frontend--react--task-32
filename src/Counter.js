@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Number from './Number'
+import Button from './Button'
 
 export class Counter extends React.Component {
     state = {
@@ -21,11 +22,9 @@ export class Counter extends React.Component {
           <Number
             numberProp={number}
           />
-          <button
+          <Button
             onClick={this.inc}
-          >
-            +
-          </button>
+          />
         </div>
       )
     }
