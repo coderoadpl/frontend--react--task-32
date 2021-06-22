@@ -1,9 +1,11 @@
 import React from 'react'
 
+import Counter from './Counter'
+
 export const App = () => {
   return (
     <div>
-      CodeRoad APP
+      <Counter />
     </div>
   )
 }
