@@ -10,17 +10,12 @@ export class App extends React.Component {
     number3: 3
   }
 
-  inc1 = () => this.setState((prevState) => ({
-    number1: prevState.number1 + 1
-  }))
-
-  inc2 = () => this.setState((prevState) => ({
-    number2: prevState.number2 + 1
-  }))
-
-  inc3 = () => this.setState((prevState) => ({
-    number3: prevState.number3 + 1
-  }))
+  handleInc = (counterNumber) => {
+    const stateChange = {
+      ['number' + counterNumber]: this.state['number' + counterNumber] + 1
+    }
+    this.setState(stateChange)
+  }
 
   dec1 = () => this.setState((prevState) => ({
     number1: prevState.number1 - 1
@@ -54,19 +49,19 @@ export class App extends React.Component {
           onClick={console.log}
         />
         <Counter
-          onClickInc={this.inc1}
+          onClickInc={() => this.handleInc(1)}
           onClickDec={this.dec1}
           onClickReset={this.reset1}
           number={this.state.number1}
         />
         <Counter
-          onClickInc={this.inc2}
+          onClickInc={() => this.handleInc(2)}
           onClickDec={this.dec2}
           onClickReset={this.reset2}
           number={this.state.number2}
         />
         <Counter
-          onClickInc={this.inc3}
+          onClickInc={() => this.handleInc(3)}
           onClickDec={this.dec3}
           onClickReset={this.reset3}
           number={this.state.number3}
