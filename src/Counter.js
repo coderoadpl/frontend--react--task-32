@@ -24,6 +24,12 @@ export class Counter extends React.Component {
     }))
   }
 
+  reset = () => {
+    this.setState((prevState) => ({
+      number: this.props.initialNumber
+    }))
+  }
+
   render () {
     const { number } = this.state
 
@@ -39,6 +45,10 @@ export class Counter extends React.Component {
         <Button
           label={'-'}
           onClick={this.dec}
+        />
+        <Button
+          label={'RESET'}
+          onClick={this.reset}
         />
       </div>
     )
