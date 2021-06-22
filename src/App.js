@@ -20,12 +20,14 @@ export class App extends React.Component {
     ['number' + counterNumber]: initialState['number' + counterNumber]
   }))
 
+  resetAll = () => this.setState(initialState)
+
   render () {
     return (
       <div>
         <Button
           label={'RESET ALL'}
-          onClick={console.log}
+          onClick={this.resetAll}
         />
         <Counter
           onClickInc={this.makeHandleChange(1, 1)}
