@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 export const Number = (props) => {
   const {
-    number,
+    numberProp,
     ...otherProps
   } = props
 
@@ -11,13 +11,13 @@ export const Number = (props) => {
     <h1
       {...otherProps}
     >
-      {number}
+      {numberProp}
     </h1>
   )
 }
 
 Number.propTypes = {
-  number: PropTypes.number.isRequired
+  numberProp: PropTypes.number.isRequired
 }
 
 export default Number

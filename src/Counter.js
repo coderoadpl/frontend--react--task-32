@@ -19,7 +19,7 @@ export class Counter extends React.Component {
       return (
         <div>
           <Number
-            number={number}
+            numberProp={number}
           />
           <button
             onClick={this.inc}
