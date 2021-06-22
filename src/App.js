@@ -6,7 +6,12 @@ export const App = () => {
   return (
     <div>
       <Counter />
-      <Counter />
+      <Counter
+        initialNumber={5}
+      />
+      <Counter
+        initialNumber={10}
+      />
     </div>
   )
 }
