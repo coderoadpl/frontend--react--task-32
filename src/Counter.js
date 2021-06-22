@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Number from './Number'
+
 export class Counter extends React.Component {
     state = {
       number: 0
@@ -16,7 +18,9 @@ export class Counter extends React.Component {
 
       return (
         <div>
-          <h1>{number}</h1>
+          <Number
+            number={number}
+          />
           <button
             onClick={this.inc}
           >
