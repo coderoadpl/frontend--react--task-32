@@ -23,6 +23,7 @@ export class Counter extends React.Component {
             numberProp={number}
           />
           <Button
+            className={'button-class-name'}
             onClick={this.inc}
           />
         </div>
