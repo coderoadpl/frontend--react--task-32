@@ -4,63 +4,40 @@ import PropTypes from 'prop-types'
 import Number from './Number'
 import Button from './Button'
 
-export class Counter extends React.Component {
-  constructor (initialProps) {
-    super()
-    this.state = {
-      number: initialProps.initialNumber
-    }
-  }
+export const Counter = (props) => {
+  const {
+    number,
+    onClickInc,
+    onClickDec,
+    onClickReset
+  } = props
 
-  inc = () => {
-    this.setState((prevState) => ({
-      number: prevState.number + 1
-    }))
-  }
-
-  dec = () => {
-    this.setState((prevState) => ({
-      number: prevState.number - 1
-    }))
-  }
-
-  reset = () => {
-    this.setState((prevState) => ({
-      number: this.props.initialNumber
-    }))
-  }
-
-  render () {
-    const { number } = this.state
-
-    return (
-      <div>
-        <Number
-          numberProp={number}
-        />
-        <Button
-          label={'+'}
-          onClick={this.inc}
-        />
-        <Button
-          label={'-'}
-          onClick={this.dec}
-        />
-        <Button
-          label={'RESET'}
-          onClick={this.reset}
-        />
-      </div>
-    )
-  }
-}
-
-Counter.defaultProps = {
-  initialNumber: 0
+  return (
+    <div>
+      <Number
+        numberProp={number}
+      />
+      <Button
+        label={'+'}
+        onClick={onClickInc}
+      />
+      <Button
+        label={'-'}
+        onClick={onClickDec}
+      />
+      <Button
+        label={'RESET'}
+        onClick={onClickReset}
+      />
+    </div>
+  )
 }
 
 Counter.propTypes = {
-  initialNumber: PropTypes.number
+  onClickInc: PropTypes.func.isRequired,
+  onClickDec: PropTypes.func.isRequired,
+  onClickReset: PropTypes.func.isRequired,
+  number: PropTypes.number.isRequired
 }
 
 export default Counter
